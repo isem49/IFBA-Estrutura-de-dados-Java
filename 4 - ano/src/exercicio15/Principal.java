@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Principal {
 
 	public static void main(String[] args) {
-		CadastroConta cc = new CadastroConta();
+		CadastrarConta cc = new CadastrarConta();
 		Scanner in = new Scanner(System.in);
 
 		cc.adicionarConta();
