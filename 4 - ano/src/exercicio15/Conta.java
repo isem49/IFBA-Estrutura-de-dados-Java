@@ -1,4 +1,4 @@
-package exercicio15;
+package exercicio;
 
 public class Conta {
 	private String nome;
@@ -29,4 +29,3 @@ public class Conta {
 	}
 	
 }
-
