@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class CadastrarConta {
 
-	Conta vetor[] = new Conta[10];
+	Conta vetor[] = new Conta[5];
 	Conta c = new Conta();
 	Scanner in = new Scanner(System.in);
 	int aux = 0;
@@ -27,14 +27,14 @@ public class CadastrarConta {
 				System.out.println("---------------------------------");
 
 			}
-			
+
 		}
 	}
 
 	public void listarConta() {
 
 		System.out.println("Contas Cadastradas: ");
-		for (int cont = 0; cont <= 3; cont++) {
+		for (int cont = 0; cont <= aux; cont++) {
 
 			System.out.println();
 			System.out.println("---------------------------------");
@@ -44,6 +44,8 @@ public class CadastrarConta {
 			System.out.println("---------------------------------");
 
 		}
+		
+		System.out.println(Arrays.toString(vetor));
 
 	}
 
@@ -75,8 +77,25 @@ public class CadastrarConta {
 			System.out.print("Digite o valor da conta: ");
 			c.setValor(in.nextInt());
 			vetor[i] = c;
-			aux = i+1;
+			
+			if(i == 2) aumentaVetor();
+			
+			aux = i + 1;
+			
+			
+			
+			
 		}
+
+	}
+
+	public void aumentaVetor() {
+
+		Conta newVetor[] = new Conta[this.vetor.length + 5];
+
+		System.arraycopy(this.vetor, 0, newVetor, 0, this.vetor.length);
+
+		this.vetor = newVetor;
 
 	}
 
