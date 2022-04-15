@@ -13,6 +13,8 @@ public class Principal {
 		s.addPos();
 		s.listarConta();
 		s.procuraConta();
+		s.removePos();
+		s.listarConta();
 		
 		
 		

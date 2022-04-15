@@ -3,14 +3,13 @@ package exercicio17;
 import java.util.Arrays;
 import java.util.Scanner;
 
-
 public class Servico {
-	
+
 	Contato vetor[] = new Contato[3];
 	Contato c = new Contato();
 	Scanner in = new Scanner(System.in);
 	int aux = 0;
-	
+
 	public void adicionarConta() {
 		for (int i = 0; i < vetor.length; i++) {
 			Contato c = new Contato();
@@ -22,19 +21,18 @@ public class Servico {
 			aux = i + 1;
 			System.out.println();
 
-			
-			if(i == vetor.length-1) {
+			if (i == vetor.length - 1) {
 				aumentaVetor();
 				break;
-				
-			} 
-			
+
+			}
+
 		}
 
 	}
-	
+
 	public void addPos() {
-		System.out.println("Digite a posição que você quer colocar: ");
+		System.out.print("Digite a posição que você quer colocar: ");
 		int pos = in.nextInt();
 
 		for (int cont = aux - 1; cont >= pos; cont--) {
@@ -43,6 +41,7 @@ public class Servico {
 
 		}
 
+		System.out.println();
 		System.out.print("Digite um nome: ");
 		c.setNome(in.next());
 		System.out.print("Digite o valor da conta: ");
@@ -50,8 +49,7 @@ public class Servico {
 		vetor[pos] = c;
 
 	}
-	
-	
+
 	public void procuraConta() {
 
 		System.out.println();
@@ -67,18 +65,19 @@ public class Servico {
 				System.out.println("nome : " + vetor[cont].getNome());
 				System.out.println("numero: " + vetor[cont].getNumero());
 				System.out.println("---------------------------------");
+				System.out.println();
 
 			}
 
 		}
 	}
-	
-	public void listarConta() {	
+
+	public void listarConta() {
 		System.out.println();
 		System.out.println(Arrays.toString(vetor));
 
 	}
-	
+
 	public void aumentaVetor() {
 
 		Contato newVetor[] = new Contato[this.vetor.length + 5];
@@ -88,7 +87,18 @@ public class Servico {
 		this.vetor = newVetor;
 
 	}
-	
-	
-	
+
+	public void removePos() {
+		System.out.print("Digite a posição que você quer remove: ");
+		int pos = in.nextInt();
+
+		for (int cont = pos; cont < vetor.length - 1; cont++) {
+
+			vetor[pos] = vetor[pos + 1];
+			pos++;
+
+		}
+
+	}
+
 }
