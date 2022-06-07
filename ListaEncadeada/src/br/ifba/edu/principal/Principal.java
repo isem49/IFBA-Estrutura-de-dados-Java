@@ -17,8 +17,19 @@ public class Principal {
 		lista.adicionaNoComeco("Camila");
 		lista.adicionaNoComeco("Helena");
 		
+		System.out.println(lista.toString());
+		
+		lista.adicionaNoF("Igor");
+		lista.adicionaNoF("Maria");
+		lista.adicionaNoF("Fulano");
+		lista.adicionaNoF("Sicrano");
+		lista.adicionaNoF("Beltrano");
+		lista.adicionaNoF("José");
+		lista.adicionaNoF("Camila");
+		lista.adicionaNoF("Helena");
 		
 		System.out.println(lista.toString());
+
 		
 	}
 
