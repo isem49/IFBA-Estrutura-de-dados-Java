@@ -7,6 +7,12 @@ public class Celula {
 	
 	public Celula() {
 	}
+	
+	public Celula(Object objeto) {
+		this.objeto = objeto;
+	}
+	
+	
 
 	public Celula(Celula proxima, Object objeto) {
 		this.proxima = proxima;
