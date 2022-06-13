@@ -10,8 +10,11 @@ public class Lista {
 	private Celula cauda;
 
 	private int totalElementos = 0;
-
+	
+	
+	//METODO PARA ADICIONAR UM ATRIBUTO NA PRIMEIRA POSIÇÃO
 	public void adicionaNoComeco(Object obj) {
+		
 		Celula nova = new Celula(this.cabeca, obj);
 		this.cabeca = nova;
 
@@ -24,12 +27,15 @@ public class Lista {
 		this.totalElementos++;
 
 	}
-
+	
+	//METODO PARA ADICIONAR UM ATRIBUTO NA POSIÇÃO FINAL
 	public void adicionaNoF(Object obj) {
+		
 		if (this.totalElementos == 0) {
 
 			this.adicionaNoComeco(obj);
-		} else {
+		}
+		else {
 
 			Celula nova = new Celula(obj);
 			this.cauda.setProxima(nova);
@@ -39,6 +45,7 @@ public class Lista {
 		}
 	}
 
+	//METODO PARA IMPRIMIR
 	public String toString() {
 
 		if (this.totalElementos == 0) {
@@ -62,49 +69,104 @@ public class Lista {
 		return listaencadeada.toString();
 
 	}
-	
-	public Boolean verificarPos (int pos) {
-		
+
+	//METODO PARA VERIFICAR SE A POSIÇÃO 
+	public Boolean verificarPos(int pos) {
+
 		return pos >= 0 && pos < this.totalElementos;
 	}
 
-	public void adicionaPos(int pos, Object obj) {
-		Celula aux = this.cabeca;
-
+	
+	//METODO PARA ADICIONAR POR POSIÇÃO
+	public void adicionaPos (int pos, Object obj) {			
+		
 		if (pos == 0) {
+			
 			this.adicionaNoComeco(obj);
-		} else if (pos == this.totalElementos) {
-
+			
+		} 
+		else if (pos == this.totalElementos) {
+			
 			this.adicionaNoF(obj);
-
-		} else {
 			
-			if(!this.verificarPos(pos)) {
-				JOptionPane.showMessageDialog(null,"A posição digitada é invalida",null,JOptionPane.ERROR_MESSAGE);
-				throw new IllegalAccessError("A posiçao digitada é invalida");
-				
-			}
-			
-			for (int i = 0; i < pos - 1; i++) {
-				aux = aux.getProxima();
-			}
-
 		}
-
-		Celula nova = new Celula(aux.getProxima(), obj);
-		aux.setProxima(nova);
-		this.totalElementos++;
-
-	}
-
-	public void removeP() {
-		Celula aux = this.cabeca;
-		this.cabeca = this.cabeca.getProxima();
-		
-		aux.setProxima(null);
-		totalElementos --;
-		
+		else if (!this.verificarPos(pos)) {
+			
+			JOptionPane.showMessageDialog(null, "Posição Inválida", null, JOptionPane.ERROR_MESSAGE);
+			throw new IllegalArgumentException("A posição digitada é inválida");
+			
+		}		
+		else {		
+			
+			Celula aux = this.cabeca;
+				
+			for (int i = 0; i < pos - 1; i++) {			
+				
+				aux = aux.getProxima();			
+			}		
+			
+			Celula nova = new Celula(aux.getProxima(), obj);
+			aux.setProxima(nova);
+			this.totalElementos++;
+		}				
 	}
 	
+	//METODO PARA REMOVER A PRIMEIRA POSIÇÃO
+	public void removeDoComeco() {
+		
+		Celula aux = this.cabeca;
+		this.cabeca = this.cabeca.getProxima();
+
+		aux.setProxima(null);
+		totalElementos--;
+
+	}
+	
+	//METODO PARA REMOVER A ULTIMA POSIÇÃO
+	public void removeF() {
+
+		Celula aux = this.cauda;
+		this.cauda = this.cauda.getProxima();
+
+		aux.setProxima(null);
+		totalElementos--;
+
+	}
+	
+	
+	public void removePos (int pos) {			
+		
+		if (pos == 0) {
+			
+			this.removeDoComeco();
+			
+		} 
+		else if (pos == this.totalElementos) {
+			
+			this.removeF();;
+			
+		}
+		else if (!this.verificarPos(pos)) {
+			
+			JOptionPane.showMessageDialog(null, "Posição Inválida", null, JOptionPane.ERROR_MESSAGE);
+			throw new IllegalArgumentException("A posição digitada é inválida");
+			
+		}		
+		else {		
+			
+			Celula aux = this.cabeca;
+				
+			for (int i = 0; i < pos - 1; i++) {		
+				
+				aux = aux.getProxima();			
+				
+			}		
+			
+			Celula nova = new Celula(aux.getProxima(), null);
+			aux.setProxima(nova);
+			this.totalElementos--;
+		}				
+		
+	}
 	
 }
