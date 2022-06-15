@@ -53,8 +53,9 @@ public class Principal {
 		//interface grafica
 		//JOptionPane.showMessageDialog(null, lista.toString());
 		
+		//remove do final
 		System.out.println();
-		lista.removePos(1);
+		lista.removePos(0);
 		System.out.println(lista.toString());
 		
 	}

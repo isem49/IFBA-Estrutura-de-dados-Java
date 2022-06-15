@@ -155,6 +155,8 @@ public class Lista {
 		else {		
 			
 			Celula aux = this.cabeca;
+			this.cabeca = this.cabeca.getProxima();
+
 				
 			for (int i = 0; i < pos - 1; i++) {		
 				
@@ -162,8 +164,7 @@ public class Lista {
 				
 			}		
 			
-			Celula nova = new Celula(aux.getProxima(), null);
-			aux.setProxima(nova);
+			aux.setProxima(null);
 			this.totalElementos--;
 		}				
 		
