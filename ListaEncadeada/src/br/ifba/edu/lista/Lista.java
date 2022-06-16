@@ -126,7 +126,6 @@ public class Lista {
 	public void removeF() {
 
 		Celula aux = this.cauda;
-		this.cauda = this.cauda.getProxima();
 
 		aux.setProxima(null);
 		totalElementos--;

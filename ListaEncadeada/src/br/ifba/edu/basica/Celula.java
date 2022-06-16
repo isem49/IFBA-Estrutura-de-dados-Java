@@ -12,8 +12,6 @@ public class Celula {
 		this.objeto = objeto;
 	}
 	
-	
-
 	public Celula(Celula proxima, Object objeto) {
 		this.proxima = proxima;
 		this.objeto = objeto;
