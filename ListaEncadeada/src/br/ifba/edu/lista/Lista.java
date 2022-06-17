@@ -154,7 +154,7 @@ public class Lista {
 		else {		
 			
 			Celula aux = this.cabeca;
-			this.cabeca = this.cabeca.getProxima();
+			
 
 				
 			for (int i = 0; i < pos - 1; i++) {		
