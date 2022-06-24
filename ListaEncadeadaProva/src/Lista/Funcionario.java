@@ -4,15 +4,17 @@ public class Funcionario {
 
 	private String nome;
 	private String rg;
+	private String cpf;
 	private int idade;
 	
 	public Funcionario() {
 		
 	}
 
-	public Funcionario(String nome, String rg, int idade) {
+	public Funcionario(String nome, String rg, String cpf, int idade) {
 		this.nome = nome;
 		this.rg = rg;
+		this.cpf = cpf;
 		this.idade = idade;
 	}
 
@@ -32,6 +34,14 @@ public class Funcionario {
 		this.rg = rg;
 	}
 
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
 	public int getIdade() {
 		return idade;
 	}
@@ -42,8 +52,9 @@ public class Funcionario {
 
 	@Override
 	public String toString() {
-		return "Funcionario [nome=" + nome + ", rg=" + rg + ", idade=" + idade + "]";
+		return "Funcionario [nome=" + nome + ", rg=" + rg + ", cpf=" + cpf + ", idade=" + idade + "]";
 	}
+
 	
 	
 	
