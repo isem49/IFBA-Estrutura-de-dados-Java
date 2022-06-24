@@ -8,7 +8,7 @@ public class Principal {
 
 	public static void main(String[] args) {
 
-		Lista lista = new Lista();
+Lista lista = new Lista();
 		
 		
 		//adicionando valores
@@ -55,10 +55,8 @@ public class Principal {
 		
 		//remove Pos
 		System.out.println();
-		lista.removePos(0);
+		lista.removePos(8);
 		System.out.println(lista.toString());
-	
-		
 		
 		
 	}

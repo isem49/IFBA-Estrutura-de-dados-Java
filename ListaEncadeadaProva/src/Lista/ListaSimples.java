@@ -1,83 +1,54 @@
-package br.ifba.edu.lista;
+package Lista;
 
 import javax.swing.JOptionPane;
 
-import br.ifba.edu.basica.Celula;
-
-public class Lista {
+public class ListaSimples {
 
 	private Celula cabeca;
 	private Celula cauda;
 
 	private int totalElementos = 0;
-	
-	//METODO PARA ADICIONAR UM ATRIBUTO NA PRIMEIRA POSIÇÃO
+
+	// ADICIONAR NO COMEÇO
 	public void adicionaNoComeco(Object obj) {
-		
+
 		Celula nova = new Celula(this.cabeca, obj);
 		this.cabeca = nova;
 
 		if (totalElementos == 0) {
-
 			this.cauda = nova;
-
 		}
 
 		this.totalElementos++;
-
 	}
-	
-	//METODO PARA ADICIONAR UM ATRIBUTO NA POSIÇÃO FINAL
+
+	// ADICIONAR NO FIM
 	public void adicionaNoF(Object obj) {
-		
+
 		if (this.totalElementos == 0) {
-
+			
 			this.adicionaNoComeco(obj);
-		}
+			
+		} 
 		else {
-
+			
 			Celula nova = new Celula(obj);
 			this.cauda.setProxima(nova);
 			this.cauda = nova;
 			this.totalElementos++;
-
+			
 		}
 	}
 
-	//METODO PARA IMPRIMIR
-	public String toString() {
-
-		if (this.totalElementos == 0) {
-
-			return "[]";
-		}
-
-		StringBuilder listaencadeada = new StringBuilder("[");
-		Celula atual = this.cabeca;
-
-		for (int i = 0; i < this.totalElementos - 1; i++) {
-
-			listaencadeada.append(atual.getObjeto());
-			listaencadeada.append(",");
-			atual = atual.getProxima();
-		}
-
-		listaencadeada.append(atual.getObjeto());
-		listaencadeada.append("]");
-
-		return listaencadeada.toString();
-
-	}
-
-	//METODO PARA VERIFICAR SE A POSIÇÃO 
-	public Boolean verificarPos(int pos) {
-
+	// VERIFICAR POSIÇÃO:
+	public boolean verificar(int pos) {
+		
 		return pos >= 0 && pos < this.totalElementos;
+		
 	}
 
-	
-	//METODO PARA ADICIONAR POR POSIÇÃO
-	public void adicionaPos (int pos, Object obj) {			
+	// ADICIONAR POR POSIÇÃO
+	public void adicionaPos(int pos, Object obj) {
 		
 		if (pos == 0) {
 			
@@ -88,52 +59,46 @@ public class Lista {
 			
 			this.adicionaNoF(obj);
 			
-		}
-		else if (!this.verificarPos(pos)) {
+		} 
+		else if (!this.verificar(pos)) {
 			
 			JOptionPane.showMessageDialog(null, "Posição Inválida", null, JOptionPane.ERROR_MESSAGE);
 			throw new IllegalArgumentException("A posição digitada é inválida");
 			
-		}		
-		else {		
+		} 
+		else {
 			
 			Celula aux = this.cabeca;
-				
-			for (int i = 0; i < pos - 1; i++) {			
-				
-				aux = aux.getProxima();			
-			}		
+
+			for (int i = 0; i < pos - 1; i++) {
+				aux = aux.getProxima();
+			}
 			
 			Celula nova = new Celula(aux.getProxima(), obj);
 			aux.setProxima(nova);
 			this.totalElementos++;
-		}				
+		}
 	}
-	
-	//METODO PARA REMOVER A PRIMEIRA POSIÇÃO
+
 	public void removeDoComeco() {
 		
 		Celula aux = this.cabeca;
 		this.cabeca = this.cabeca.getProxima();
-
 		aux.setProxima(null);
-		totalElementos--;
-
+		this.totalElementos--;
+		
 	}
-	
-	//METODO PARA REMOVER A ULTIMA POSIÇÃO
-	public void removeF() {
 
+	public void removeF() {
+	
 		Celula aux = this.cauda;
 
 		aux.setProxima(null);
-		totalElementos--;
-
-	}
-	
-	
-	public void removePos (int pos) {			
+		this.totalElementos--;
 		
+	}
+
+	public void removePos(int pos) {
 		if (pos == 0) {
 			
 			this.removeDoComeco();
@@ -141,17 +106,17 @@ public class Lista {
 		} 
 		else if (pos == this.totalElementos) {
 			
-			this.removeF();;
+			this.removeF();
 			
-		}
-		else if (!this.verificarPos(pos)) {
+		} 
+		else if (!this.verificar(pos)) {
 			
 			JOptionPane.showMessageDialog(null, "Posição Inválida", null, JOptionPane.ERROR_MESSAGE);
 			throw new IllegalArgumentException("A posição digitada é inválida");
 			
-		}		
-		else {		
-				
+		} 
+		else {
+			
 			Celula aux = this.cabeca;
 
 			for (int i = 0; i < pos - 1; i++) {
@@ -163,22 +128,29 @@ public class Lista {
 			aux.setProxima(aux.getProxima().getProxima());
 			aux.getProxima();
 			this.totalElementos--;
-		
-		}				
-		
-	}
-
-	//imprimir Aula Igor	
-	public void imprimir() {
-		Celula atual = this.cabeca;
-		
-		for (int i = 0; i < this.totalElementos ; i++) {
-			
-			System.out.println(atual.getProxima());
-			atual = atual.getProxima();
-			
 		}
-	
-	
 	}
+	
+	//Imprimir
+	public String toString() {
+		if (this.totalElementos == 0) {
+			return "[]";
+		}
+
+		StringBuilder listaencadeada = new StringBuilder("[");
+		Celula atual = this.cabeca;
+
+		for (int i = 0; i < this.totalElementos - 1; i++) {
+			listaencadeada.append(atual.getObjeto());
+			listaencadeada.append(",");
+			atual = atual.getProxima();
+		}
+
+		listaencadeada.append(atual.getObjeto());
+		listaencadeada.append("]");
+
+		return listaencadeada.toString();
+	}
+	
+	
 }
