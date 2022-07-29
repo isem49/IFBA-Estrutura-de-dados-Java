@@ -11,7 +11,7 @@ public class Lista {
 
 	private int totalElementos = 0;
 	
-	//METODO PARA ADICIONAR UM ATRIBUTO NA PRIMEIRA POSIÇÃO
+	//METODO PARA ADICIONAR UM ATRIBUTO NA PRIMEIRA POSIÃ‡ÃƒO
 	public void adicionaNoComeco(Object obj) {
 		
 		Celula nova = new Celula(this.cabeca, obj);
@@ -27,7 +27,7 @@ public class Lista {
 
 	}
 	
-	//METODO PARA ADICIONAR UM ATRIBUTO NA POSIÇÃO FINAL
+	//METODO PARA ADICIONAR UM ATRIBUTO NA POSIÃ‡ÃƒO FINAL
 	public void adicionaNoF(Object obj) {
 		
 		if (this.totalElementos == 0) {
@@ -69,14 +69,14 @@ public class Lista {
 
 	}
 
-	//METODO PARA VERIFICAR SE A POSIÇÃO 
+	//METODO PARA VERIFICAR SE A POSIÃ‡ÃƒO 
 	public Boolean verificarPos(int pos) {
 
 		return pos >= 0 && pos < this.totalElementos;
 	}
 
 	
-	//METODO PARA ADICIONAR POR POSIÇÃO
+	//METODO PARA ADICIONAR POR POSIÃ‡ÃƒO
 	public void adicionaPos (int pos, Object obj) {			
 		
 		if (pos == 0) {
@@ -91,8 +91,8 @@ public class Lista {
 		}
 		else if (!this.verificarPos(pos)) {
 			
-			JOptionPane.showMessageDialog(null, "Posição Inválida", null, JOptionPane.ERROR_MESSAGE);
-			throw new IllegalArgumentException("A posição digitada é inválida");
+			JOptionPane.showMessageDialog(null, "PosiÃ§Ã£o InvÃ¡lida", null, JOptionPane.ERROR_MESSAGE);
+			throw new IllegalArgumentException("A posiÃ§Ã£o digitada Ã© invÃ¡lida");
 			
 		}		
 		else {		
@@ -110,7 +110,7 @@ public class Lista {
 		}				
 	}
 	
-	//METODO PARA REMOVER A PRIMEIRA POSIÇÃO
+	//METODO PARA REMOVER A PRIMEIRA POSIÃ‡ÃƒO
 	public void removeDoComeco() {
 		
 		Celula aux = this.cabeca;
@@ -121,13 +121,16 @@ public class Lista {
 
 	}
 	
-	//METODO PARA REMOVER A ULTIMA POSIÇÃO
+	//METODO PARA REMOVER A ULTIMA POSIÃ‡ÃƒO
 	public void removeF() {
 
-		Celula aux = this.cauda;
+		Celula aux = this.cabeca;
 
-		aux.setProxima(null);
-		totalElementos--;
+		for (int i = 0; i < this.totalElementos - 1; i++) {
+			aux = aux.getProxima();
+		}
+		this.cauda = aux;
+		
 
 	}
 	
@@ -146,8 +149,8 @@ public class Lista {
 		}
 		else if (!this.verificarPos(pos)) {
 			
-			JOptionPane.showMessageDialog(null, "Posição Inválida", null, JOptionPane.ERROR_MESSAGE);
-			throw new IllegalArgumentException("A posição digitada é inválida");
+			JOptionPane.showMessageDialog(null, "PosiÃ§Ã£o InvÃ¡lida", null, JOptionPane.ERROR_MESSAGE);
+			throw new IllegalArgumentException("A posiÃ§Ã£o digitada Ã© invÃ¡lida");
 			
 		}		
 		else {		
