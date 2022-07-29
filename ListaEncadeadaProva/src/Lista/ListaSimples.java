@@ -9,7 +9,7 @@ public class ListaSimples {
 
 	private int totalElementos = 0;
 
-	// ADICIONAR NO COMEÇO
+	// ADICIONAR NO COMEÃ‡O
 	public void adicionaNoComeco(Object obj) {
 
 		Celula nova = new Celula(this.cabeca, obj);
@@ -40,14 +40,14 @@ public class ListaSimples {
 		}
 	}
 
-	// VERIFICAR POSIÇÃO:
+	// VERIFICAR POSIÃ‡ÃƒO:
 	public boolean verificar(int pos) {
 		
 		return pos >= 0 && pos < this.totalElementos;
 		
 	}
 
-	// ADICIONAR POR POSIÇÃO
+	// ADICIONAR POR POSIÃ‡ÃƒO
 	public void adicionaPos(int pos, Object obj) {
 		
 		if (pos == 0) {
@@ -62,8 +62,8 @@ public class ListaSimples {
 		} 
 		else if (!this.verificar(pos)) {
 			
-			JOptionPane.showMessageDialog(null, "Posição Inválida", null, JOptionPane.ERROR_MESSAGE);
-			throw new IllegalArgumentException("A posição digitada é inválida");
+			JOptionPane.showMessageDialog(null, "PosiÃ§Ã£o InvÃ¡lida", null, JOptionPane.ERROR_MESSAGE);
+			throw new IllegalArgumentException("A posiÃ§Ã£o digitada Ã© invÃ¡lida");
 			
 		} 
 		else {
@@ -91,10 +91,12 @@ public class ListaSimples {
 
 	public void removeF() {
 	
-		Celula aux = this.cauda;
+		Celula aux = this.cabeca;
 
-		aux.setProxima(null);
-		this.totalElementos--;
+		for (int i = 0; i < this.totalElementos - 1; i++) {
+			aux = aux.getProxima();
+		}
+		this.cauda = aux;
 		
 	}
 
@@ -111,8 +113,8 @@ public class ListaSimples {
 		} 
 		else if (!this.verificar(pos)) {
 			
-			JOptionPane.showMessageDialog(null, "Posição Inválida", null, JOptionPane.ERROR_MESSAGE);
-			throw new IllegalArgumentException("A posição digitada é inválida");
+			JOptionPane.showMessageDialog(null, "PosiÃ§Ã£o InvÃ¡lida", null, JOptionPane.ERROR_MESSAGE);
+			throw new IllegalArgumentException("A posiÃ§Ã£o digitada Ã© invÃ¡lida");
 			
 		} 
 		else {
