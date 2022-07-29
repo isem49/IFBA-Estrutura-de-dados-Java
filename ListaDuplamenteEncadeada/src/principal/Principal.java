@@ -8,10 +8,9 @@ public class Principal {
 
 	public static void main(String[] args) {
 
-Lista lista = new Lista();
-		
-		
-//adicionando valores
+		Lista lista = new Lista();
+
+		//adicionando valores
 		lista.adicionaNoComeco("Igor");
 		lista.adicionaNoComeco("Maria");
 		lista.adicionaNoComeco("Fulano");
@@ -20,23 +19,41 @@ Lista lista = new Lista();
 		lista.adicionaNoComeco("José");
 		lista.adicionaNoComeco("Camila");
 		lista.adicionaNoComeco("Helena");
-		
-		//imprimindo valores pela primeira vez
+
+		// imprimindo valores pela primeira vez
 		System.out.println(lista.toString());
-		
-		//IMPRIMINDO VALORES DEPOIS DE ADICIONAR NO FINAL
+
+		// Adicionar no final
+		lista.adicionaNoF("junior");
+		lista.adicionaNoF("ricardo");
+
+		// IMPRIMINDO VALORES DEPOIS DE ADICIONAR NO FINAL
 		System.out.println();
 		System.out.println(lista.toString());
-		
-		//adicionando por Posição
+
+		// adicionando por Posição
 		lista.adicionaPos(2, "teste");
 		System.out.println();
 		System.out.println(lista.toString());
-		
-	
-	
-		
-		
+
+		// Removendo o primeiro
+		System.out.println();
+		lista.removeDoComeco();
+		System.out.println(lista.toString());
+
+		// interface grafica
+		// JOptionPane.showMessageDialog(null, lista.toString());
+
+		// Remove a ultima posição
+		System.out.println();
+		lista.removeF();
+		System.out.println(lista.toString());
+
+		// Remove a ultima posição
+		System.out.println();
+		lista.removePos(1);
+		System.out.println(lista.toString());
+
 	}
 
 }
