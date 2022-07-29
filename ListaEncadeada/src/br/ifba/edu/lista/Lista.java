@@ -124,12 +124,15 @@ public class Lista {
 	//METODO PARA REMOVER A ULTIMA POSIÇÃO
 	public void removeF() {
 
-		Celula aux = this.cabeca;
+	Celula aux = this.cabeca;
 
-		for (int i = 0; i < this.totalElementos - 1; i++) {
+		for (int i = 0; i < this.totalElementos - 2; i++) {
 			aux = aux.getProxima();
 		}
+		
+		aux.setProxima(null);
 		this.cauda = aux;
+		totalElementos--;
 		
 
 	}
