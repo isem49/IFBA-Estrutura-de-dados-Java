@@ -93,10 +93,13 @@ public class ListaSimples {
 	
 		Celula aux = this.cabeca;
 
-		for (int i = 0; i < this.totalElementos - 1; i++) {
+		for (int i = 0; i < this.totalElementos - 2; i++) {
 			aux = aux.getProxima();
 		}
+		
+		aux.setProxima(null);
 		this.cauda = aux;
+		totalElementos--;
 		
 	}
 
