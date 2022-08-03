@@ -124,7 +124,11 @@ public class Lista {
 	// METODO PARA REMOVER A ULTIMA POSI��O
 	public void removeF() {
 
-		Celula aux = this.cabeca;
+		
+		// tbm funcionou
+		/*
+		 
+		 Celula aux = this.cabeca;
 
 		for (int i = 0; i < this.totalElementos - 2; i++) {
 			aux = aux.getProxima();
@@ -134,7 +138,12 @@ public class Lista {
 		this.cauda = aux;
 		this.cauda.setAnterior(aux);
 		totalElementos--;
-
+		
+		*/
+		
+		this.cauda = cauda.getAnterior();
+		this.cauda.setProxima(null);
+		totalElementos--;
 	}
 
 	public void removePos(int pos) {
@@ -164,8 +173,7 @@ public class Lista {
 			}
 
 			aux.setProxima(aux.getProxima().getProxima());
-			aux.getProxima();
-			aux.setAnterior(aux);
+			aux.getProxima().getProxima().setAnterior(aux);
 			this.totalElementos--;
 
 		}

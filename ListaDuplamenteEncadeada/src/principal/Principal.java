@@ -16,7 +16,7 @@ public class Principal {
 		lista.adicionaNoComeco("Fulano");
 		lista.adicionaNoComeco("Sicrano");
 		lista.adicionaNoComeco("Beltrano");
-		lista.adicionaNoComeco("JosÃ©");
+		lista.adicionaNoComeco("José");
 		lista.adicionaNoComeco("Camila");
 		lista.adicionaNoComeco("Helena");
 
