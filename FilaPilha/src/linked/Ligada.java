@@ -9,10 +9,12 @@ import basica.Contato;
 public class Ligada {
 
 	Queue<Contato> lista = new LinkedList<Contato>();
+	private int totalElmentos;
 
 	public void inserir(Contato e) {
 
 		lista.add(e);
+		
 
 	}
 
@@ -32,16 +34,14 @@ public class Ligada {
 
 		Stack<Contato> s = new Stack<Contato>();
 		
-		for(int cont = 0; cont <= lista.size(); cont++  ) {
-			
-			s.push(lista.remove());
-			
+		
+		while (lista.size() !=  0 ) {
+			s.push(lista.remove()); 
 		}
 		
-		for(int cont = 0; cont <= s.size(); cont++  ) {
-			
-			lista.add(s.pop());
-			
+		
+		while (s.size() != 0 ) {
+			lista.add(s.pop()); 
 		}
 		
 		
