@@ -23,13 +23,13 @@ public class Recursao {
 			
 		}
 
-		while(!lista.isEmpty()){
+		if(!lista.isEmpty()){
 			
 			int a = Character.getNumericValue(lista.removeLast());
 			
 			result += (int) (a * Math.pow(2, aux2));
 			aux2++;
-			
+			conversor(numero);
 		}
 	
 		return result;

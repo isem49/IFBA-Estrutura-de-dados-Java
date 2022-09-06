@@ -8,7 +8,7 @@ public class Principal {
 		System.out.println("===== Conversão de Binario para Decimal =====");
 		System.out.println();
 		
-		System.out.println("Resultado da recursao: "+ r.conversor("1000"));
+		System.out.println("Resultado da recursao: "+ r.conversor("1010"));
 		
 	}
 
