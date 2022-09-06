@@ -1,39 +1,25 @@
-import java.util.LinkedList;
 
 public class Recursao {
 	
-	int result;
-	int aux;
-	int aux2;
-
+	int total;
 	
-	LinkedList<Character> lista = new LinkedList<Character>();
-
-	public int conversor(String n) {
+	public int contar(int n) {
 		
-		String numero = n;
-		
-
-		if(aux < numero.length()) {
+		if(n==0) {
 			
-			lista.add(numero.charAt(aux));
-			aux++;
-		
-			conversor(numero);
+			return 0;
 			
 		}
-
-		while(!lista.isEmpty()){
-			
-			int a = Character.getNumericValue(lista.removeLast());
-			
-			result += (int) (a * Math.pow(2, aux2));
-			aux2++;
-			
-		}
-	
-		return result;
 		
+		System.out.println("Pilha ---> " + n);
+		System.out.println();
+		
+		total = n + contar(n-1);
+		
+		System.out.println("Desmontagem da pilha ---> " + total);
+		System.out.println();
+		
+		return total;
 		
 	}
 	
