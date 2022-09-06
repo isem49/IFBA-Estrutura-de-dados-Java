@@ -20,13 +20,13 @@ public class Verificar {
 		}
 		
 		while (!lista.isEmpty()) {
-			String letra = Character.toString(lista.removeLast());
+			String l = Character.toString(lista.removeLast());
 
-			if (letra.equalsIgnoreCase("(")) {
+			if (l.equals("(")) {
 				contador1++;
 			}
 			
-			if (letra.equalsIgnoreCase(")")) {
+			if (l.equals(")")) {
 				contador2++;
 			}
 
